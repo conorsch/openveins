@@ -1,6 +1,7 @@
 ##!/usr/bin/env python3
 # adapted from http://stackoverflow.com/questions/5036605/how-to-export-a-mysql-database-to-json
 import json
+import sqlalchemy
 
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
@@ -19,14 +20,13 @@ class WordpressPost(object):
         return {attrib: getattr(self, attrib) for attrib in SOUGHT_ATTRIBUTES}
 
 
-import sqlalchemy
 metadata = sqlalchemy.MetaData()
 wp_posts_table = sqlalchemy.Table('wp_posts', metadata,
         sqlalchemy.Column('ID', sqlalchemy.Integer, primary_key=True),
         sqlalchemy.Column('post_title', sqlalchemy.String(100)),
         sqlalchemy.Column('post_content', sqlalchemy.String(100)),
-        sqlalchemy.Column('post_date', sqlalchemy.Date),
-        sqlalchemy.Column('post_date_gmt', sqlalchemy.Date),
+        sqlalchemy.Column('post_date', sqlalchemy.String(100)),
+        sqlalchemy.Column('post_date_gmt', sqlalchemy.String(100)),
     )
 
 # connect the database.  substitute the needed values.
@@ -39,11 +39,14 @@ metadata.create_all(engine)
 import sqlalchemy.orm
 sqlalchemy.orm.mapper(WordpressPost, wp_posts_table)
 
-QUERY = 'SELECT * FROM wp_posts;'
+QUERY = 'SELECT ID, post_title, post_content FROM wp_posts;'
 wp_posts = list(engine.execute(QUERY))
+wp_posts = [dict(p) for p in wp_posts]
 
 
 # and lets make some json out of it:
 import json
 
 wp_posts_json = json.dumps(wp_posts)
+with open('wp_posts.json', 'w') as f:
+    f.write(wp_posts_json)
