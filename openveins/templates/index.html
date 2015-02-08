@@ -1,26 +1,15 @@
 {% extends 'base.html' %}
-{% load endless %}
 
 {% block content %}
 
-  {% paginate quotes %}
-  {% for quote in quotes %}
-  <div class="container quote-box">
-    <blockquote>
-      {{ quote.text }}
-    </blockquote>
-    <div class="quote-attribution">
-      <p>― {{quote.author}}</p>
-      <p><i>{{quote.source}}</i></p>
-      <p>{{quote.year}}</p>
-    </div>
-    {% if quote.editorial %}
-    <div class="quote-editorial">
-      <p>{{quote.editorial|safe}}</p>
-    </div>
-    {% endif %}
-  </div>
-  {% endfor %}
-  {% show_pages %}
+{% include page_template %}
+
+{% block js %}
+    {{ block.super }}
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
+    <script>$.endlessPaginate();</script>
+{% endblock %}
+
 
 {% endblock content %}

@@ -4,7 +4,7 @@ from openveins.models import Quote
 from endless_pagination.decorators import page_template
 
 
-@page_template('index.html')
+@page_template('quote_iteration.html')
 def home(
         request,
         template='index.html',
