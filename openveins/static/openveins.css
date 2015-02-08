@@ -19,14 +19,19 @@ html, body {
   border: 1px solid #151515;
 }
 .quote-box blockquote {
+  font-size: 23px;
 }
 .quote-attribution {
+  font-size: 17px;
   float: left;
   padding-bottom: 15px;
   margin-left: 100px;
   text-align: left;
   line-height: .5em;
   width: 100%;
+}
+.quote-editorial {
+  font-size: 15px;
 }
 
 body,
