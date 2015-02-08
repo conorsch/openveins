@@ -33,6 +33,11 @@ html, body {
 .quote-editorial {
   font-size: 15px;
 }
+.quote-post-date {
+  float: right;
+  margin-top: -15px;
+  font-size: 12px;
+}
 
 body,
 input,
