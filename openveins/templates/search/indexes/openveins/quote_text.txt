@@ -1,0 +1,3 @@
+{{ object.text  }}
+{{ object.author }}
+{{ object.source  }}
