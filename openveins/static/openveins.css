@@ -1,3 +1,14 @@
+/* Sticky footer from http://stackoverflow.com/a/21325511/140800 */
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.footer, .push {
+  height: 45px; /* .push must be the same height as .footer */
+  text-align: center;
+}
 .jumbotron {
   color: red;
 }
@@ -8,8 +19,6 @@
   border: 1px solid #151515;
 }
 .quote-box blockquote {
-
-
 }
 .quote-attribution {
   float: left;
