@@ -20,9 +20,13 @@ html, body {
   border: 1px solid #151515;
 }
 .quote-box blockquote {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
   font-size: 23px;
 }
 .quote-attribution {
+  margin-top: -15px;
   font-size: 17px;
   float: left;
   padding-bottom: 15px;
@@ -36,7 +40,7 @@ html, body {
 }
 .quote-post-date {
   float: right;
-  margin-top: -15px;
+  margin-top: -10px;
   font-size: 12px;
   color: #5C5C5C;
 }
@@ -50,7 +54,7 @@ h1,
 h2,
 h3,
 h4,
-h5
+h5,
 .navbar-search .search-query {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
