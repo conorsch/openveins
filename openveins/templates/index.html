@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block content %}
 
@@ -7,9 +8,8 @@
 {% block js %}
     {{ block.super }}
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
+    <script src="{% static "endless_pagination/js/endless-pagination.js" %}"></script>
     <script>$.endlessPaginate({paginateOnScroll: true});</script>
 {% endblock %}
-
 
 {% endblock content %}
