@@ -28,3 +28,12 @@ html, body {
   line-height: .5em;
   width: 100%;
 }
+
+body,
+input,
+button,
+select,
+textarea,
+.navbar-search .search-query {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
