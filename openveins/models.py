@@ -4,6 +4,9 @@ from datetime import datetime
 
 class Quote(models.Model):
 
+    class Meta:
+        ordering = ['-post_date']
+
     author = models.CharField(max_length=100)
     source = models.CharField(max_length=100)
     year = models.CharField(max_length=10, blank=True, null=True)
