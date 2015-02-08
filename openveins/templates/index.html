@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  {% for quote in quotes %}
+  <div class="container quote-box">
+    <blockquote>
+      {{ quote.text }}
+    </blockquote>
+    <div class="quote-attribution">
+      <p>― {{quote.author}}</p>
+      <p><i>{{quote.source}}</i></p>
+      <p>{{quote.year}}</p>
+    </div>
+    {% if quote.editorial %}
+      <p>{{quote.editorial|safe}}</p>
+    {% endif %}
+  </div>
+
+  {% endfor %}
+
+{% endblock content %}
