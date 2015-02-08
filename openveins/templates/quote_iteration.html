@@ -6,14 +6,13 @@
     <h1>
     {{ quote.text }}
     </h1>
-  </blockquote>
-  <div class="quote-attribution">
-    <h3>
-      ― {{quote.author}}<br>
-      <i>{{quote.source}}</i><br>
+
+  <small>
+    {{quote.author}}<br>
+    <cite title="{{quote.source}}">{{quote.source}}</cite><br>
       {{quote.year}}<br>
-  </h3>
-  </div>
+  </small>
+  </blockquote>
   {% if quote.editorial %}
   <div class="quote-editorial">
     <p>{{quote.editorial|safe}}</p>

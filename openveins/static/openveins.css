@@ -35,6 +35,12 @@ html, body {
   line-height: .5em;
   width: 100%;
 }
+.quote-box small {
+  padding-top: 10px;
+  padding-left: 100px ;
+  text-indent: -22px ;
+  line-height: 1.2em;
+}
 .quote-editorial {
   font-size: 15px;
 }
