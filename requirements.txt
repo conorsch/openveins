@@ -3,3 +3,4 @@ ipython
 sqlalchemy
 beautifulsoup4
 django-bootstrap-themes
+django-endless-pagination
