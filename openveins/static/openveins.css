@@ -13,6 +13,9 @@ html, body {
   color: red;
   font-size: 35px;
 }
+.navbar-brand a {
+  color: red;
+}
 .quote-box {
   padding-bottom: 5px;
   margin-top: 15px;
