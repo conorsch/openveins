@@ -8,14 +8,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Open Veins</title>
-    {% bootstrap_styles theme='cyborg' type='css' %}
+    {% bootstrap_styles theme='lumen' type='css' %}
     <link rel="stylesheet" type="text/css" href="{% static "openveins.css" %}">
   </head>
   <body>
   {% include "navbar_top.html" %}
-  <div class="jumbotron">
-    Open Veins
-  </div>
   <div class="main-content">
     {% block content %}
     {% endblock content %}
