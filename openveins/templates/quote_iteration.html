@@ -1,0 +1,27 @@
+{% load endless %}
+{% paginate quotes %}
+{% for quote in quotes %}
+<div class="container quote-box">
+  <blockquote>
+    <h1>
+    {{ quote.text }}
+  </h2>
+  </blockquote>
+  <div class="quote-attribution">
+    <h3>
+      ― {{quote.author}}<br>
+      <i>{{quote.source}}</i><br>
+      {{quote.year}}<br>
+  </h3>
+  </div>
+  {% if quote.editorial %}
+  <div class="quote-editorial">
+    <p>{{quote.editorial|safe}}</p>
+  </div>
+  {% endif %}
+  <div class="quote-post-date">
+    {{quote.post_date}}
+  </div>
+</div>
+{% endfor %}
+{% show_more %}
