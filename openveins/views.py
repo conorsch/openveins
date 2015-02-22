@@ -1,6 +1,11 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.core.urlresolvers import reverse_lazy
 from openveins.models import Quote
+from openveins.forms import QuoteForm
+from django.views.generic import CreateView, FormView
+from braces.views import LoginRequiredMixin
+from vanilla import UpdateView
 from endless_pagination.decorators import page_template
 
 
@@ -17,10 +22,18 @@ def home(
     return render_to_response(
         template, context, context_instance=RequestContext(request))
 
-def home_orig(request):
-    quotes = Quote.objects.all()
-#    quotes = quotes[0:2]
-    return render_to_response(
-        'index.html',
-        {'quotes': quotes},
-    )
+
+class QuoteUpdateView(UpdateView):
+    model = Quote
+    template_name = "quote_form.html"
+
+
+class QuoteCreateView(LoginRequiredMixin, CreateView):
+    model = Quote
+    template_name = "quote_form.html"
+
+    def get_form_class(self):
+        return QuoteForm
+
+    def get_success_url(self):
+        return reverse_lazy('home')

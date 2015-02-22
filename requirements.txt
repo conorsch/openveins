@@ -3,5 +3,7 @@ ipython
 sqlalchemy
 beautifulsoup4
 django-bootstrap-themes
+django-bootstrap-form
 django-endless-pagination
 django-haystack
+django-vanilla-views

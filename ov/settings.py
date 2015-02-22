@@ -25,6 +25,9 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 TEMPLATE_CONTEXT_PROCESSORS += (
     'django.core.context_processors.request',
@@ -39,8 +42,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap_themes',
+    'bootstrapform',
+    'braces',
     'endless_pagination',
     'haystack',
+    'floppyforms',
     'openveins',
 )
 
