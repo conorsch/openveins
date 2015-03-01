@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from openveins.views import QuoteCreateView, QuoteUpdateView
+from openveins.views import QuoteCreateView, QuoteUpdateView, about
 
 
 urlpatterns = patterns('',
@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^logout/$', 'django.contrib.auth.views.logout', name='logout'),
 
     # Manage Quote objects
+    url(r'^about/', 'openveins.views.about', name='about'),
     url(r'^new/', QuoteCreateView.as_view(), name='new-quote'),
     url(r'^edit/(?P<pk>.+)', QuoteUpdateView.as_view(), name='edit-quote'),
 )
