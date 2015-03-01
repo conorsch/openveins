@@ -91,6 +91,9 @@ h5,
 /*  color: #730109; */
   font-family: Georgia, "Times New Roman", Times, serif;
 }
+h1 { 
+  padding-bottom: 30px;
+}
 .quote-box h1 {
   color: #210404;
 }
