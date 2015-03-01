@@ -1,2 +1,3 @@
 staticfiles/*
+openveins/migrations/*
 db.sqlite3

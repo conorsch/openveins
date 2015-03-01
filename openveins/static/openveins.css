@@ -1,27 +1,56 @@
 /* Sticky footer from http://stackoverflow.com/a/21325511/140800 */
 * {
   margin: 0;
+  background-color: rgb(0,0,0);
+  background-image: url(parchment_background.jpg);
+  background-position: top left;
+  background-repeat: repeat;
+  background-attachment: fixed;
 }
 html, body {
   height: 100%;
+  color: #210404;
+}
+.navbar-inverse {
+  color: #730109;
+  border-color: #730109;
+}
+.navbar-inverse .navbar-brand {
+  color: #730109;
+}
+.navbar-nav .navbar-nav:focus .navbar:hover li a {
+  color: #210404;
+}
+.quote-post-date-color {
+  color: #210404;
+
+}
+.navbar-inverse .navbar-nav > li > a{
+  color: #210404;
+}
+.dropdown-toggle .dropdown-menu li a:hover {
+  color: #210404;
 }
 .footer, .push {
   height: 45px; /* .push must be the same height as .footer */
   text-align: center;
 }
 .quote-box {
+  box-shadow: -2px 2px 2px rgba(0,0,0,0.3);
   padding-bottom: 5px;
   margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 /*  border: 1px solid #151515; */
 }
 .quote-box blockquote {
+  border-left: 5px solid #730109;
   padding-top: 5px;
   padding-bottom: 5px;
   margin-bottom: 5px;
   font-size: 23px;
 }
 .quote-attribution {
+  color: #730109;
   margin-top: -15px;
   font-size: 17px;
   float: left;
@@ -45,6 +74,9 @@ html, body {
   margin-top: -10px;
   font-size: 12px;
 }
+h3.search-results {
+  padding-bottom: 30px;
+}
 body,
 input,
 button,
@@ -56,5 +88,9 @@ h3,
 h4,
 h5,
 .navbar-search .search-query {
+/*  color: #730109; */
   font-family: Georgia, "Times New Roman", Times, serif;
+}
+.quote-box h1 {
+  color: #210404;
 }

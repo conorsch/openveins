@@ -1,10 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-        {% if query %}
-            <h3>Results</h3>
+  {% if query %}
+    <h3 class="search-results">Quotes with "{{ query  }}" in them:</h3>
+      {% for quote in page.object_list %}
+        <div class="container quote-box">
+          <blockquote>
+            <h1>{{ quote.text }}</h1>
+            <small class="quote-attribution">
+              {{quote.author}}<br>
+              <cite title="{{quote.source}}"><i>{{quote.source}}</i></cite><br>
+              {{quote.year}}<br>
+            </small>
+           </blockquote>
+        </div>
 
-            {% for result in page.object_list %}
+     {% if quote.editorial %}
+       <div class="quote-editorial">
+         <p>{{quote.editorial|safe}}</p>
+        </div>
+     {% endif %}
+     <div class="quote-post-date">
+       {{quote.post_date}}
+     </div>
                 <p>
                     <a href="{{ result.object.get_absolute_url }}">{{ result.object.text }}</a>
                 </p>

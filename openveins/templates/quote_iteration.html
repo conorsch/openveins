@@ -1,5 +1,6 @@
 {% load endless %}
 {% paginate quotes %}
+
 {% for quote in quotes %}
 <div class="container quote-box">
   <blockquote>
@@ -7,12 +8,13 @@
     {{ quote.text }}
     </h1>
 
-  <small>
+  <small class="quote-attribution">
     {{quote.author}}<br>
-    <cite title="{{quote.source}}">{{quote.source}}</cite><br>
-      {{quote.year}}<br>
+    <cite title="{{quote.source}}"><i>{{quote.source}}</i></cite><br>
+    {{quote.year}}<br>
   </small>
   </blockquote>
+
   {% if quote.editorial %}
   <div class="quote-editorial">
     <p>{{quote.editorial|safe}}</p>
