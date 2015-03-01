@@ -1,28 +1,8 @@
 {% load endless %}
+{% load openveins_extras %}
 {% paginate quotes %}
 
 {% for quote in quotes %}
-<div class="container quote-box">
-  <blockquote>
-    <h1>
-    {{ quote.text }}
-    </h1>
-
-  <small class="quote-attribution">
-    {{quote.author}}<br>
-    <cite title="{{quote.source}}"><i>{{quote.source}}</i></cite><br>
-    {{quote.year}}<br>
-  </small>
-  </blockquote>
-
-  {% if quote.editorial %}
-  <div class="quote-editorial">
-    <p>{{quote.editorial|safe}}</p>
-  </div>
-  {% endif %}
-  <div class="quote-post-date">
-    {{quote.post_date}}
-  </div>
-</div>
+  {% render_quote_card quote %}
 {% endfor %}
 {% show_more %}
