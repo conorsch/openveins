@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from openveins.views import QuoteCreateView, QuoteUpdateView, about
+from openveins.views import QuoteCreateView, QuoteUpdateView
 
 
 urlpatterns = patterns('',

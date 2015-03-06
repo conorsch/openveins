@@ -1,8 +1,6 @@
 from django.test import Client, TestCase
 from django.core.urlresolvers import reverse
-from openveins.models import Quote
-from django.core.exceptions import ValidationError
-from .factories import UserFactory, QuoteFactory
+from .factories import UserFactory, DEFAULT_PASSWORD
 
 
 class TestPublicViews(TestCase):
@@ -13,11 +11,13 @@ class TestPublicViews(TestCase):
 
     def test_home_page(self):
         # quotes should be visible
-        response = self.client.get(reverse("home"))
-        print("PUBLIC VIEW CONTENT:")
-        print(response.content)
+        response = self.client.get(reverse("home"), follow=True)
+        self.assertEqual(response.status_code, 200)
 
-        self.assertTrue('<div class="container quote-box">' in str(response.content))
+    def test_endless_pagination(self):
+        # TODO: make sure JS adds Quote objects to DOM
+        pass
+
 
 class TestPrivateViews(TestCase):
 
@@ -25,7 +25,11 @@ class TestPrivateViews(TestCase):
         self.client = Client()
         self.user = UserFactory()
 
-    def test_home_page(self):
-        # quotes should be visible
-        response = self.client.get(reverse("home"))
-        self.assertTrue('<div class="container quote-box">' in str(response.content))
+    def test_anonymous_user_cannot_add_new_quote(self):
+        response = self.client.get(reverse("new-quote"), follow=True)
+        self.assertEqual(response.status_code, 403)
+
+    def test_authenticated_user_can_add_new_quote(self):
+        self.assertTrue(self.client.login(username=self.user.username, password=DEFAULT_PASSWORD))
+        response = self.client.get(reverse("new-quote"), follow=True)
+        self.assertEqual(response.status_code, 200)
