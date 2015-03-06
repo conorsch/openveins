@@ -21,9 +21,14 @@ html, body {
 .navbar-nav .navbar-nav:focus .navbar:hover li a {
   color: #210404;
 }
+.quote-edit-label > a {
+  float: right;
+  display: inline-block;
+  vertical-align: top;
+  color: #730109;
+}
 .quote-post-date-color {
   color: #210404;
-
 }
 .navbar-inverse .navbar-nav > li > a{
   color: #210404;
@@ -94,6 +99,27 @@ h5,
 h1 { 
   padding-bottom: 30px;
 }
+.btn .btn-primary .form-group button {
+  color: #210404 !important;
+}
 .quote-box h1 {
   color: #210404;
+}
+
+.btn-custom {
+  /* generated via http://charliepark.org/bootstrap_buttons/ */
+  background-color: hsl(0, 58%, 22%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a92c2c", endColorstr="#581717");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#a92c2c), to(#581717));
+  background-image: -moz-linear-gradient(top, #a92c2c, #581717);
+  background-image: -ms-linear-gradient(top, #a92c2c, #581717);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #a92c2c), color-stop(100%, #581717));
+  background-image: -webkit-linear-gradient(top, #a92c2c, #581717);
+  background-image: -o-linear-gradient(top, #a92c2c, #581717);
+  background-image: linear-gradient(#a92c2c, #581717);
+  border-color: #581717 #581717 hsl(0, 58%, 17%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33);
+  -webkit-font-smoothing: antialiased;
 }

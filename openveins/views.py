@@ -3,7 +3,7 @@ from django.template import RequestContext
 from django.core.urlresolvers import reverse_lazy
 from openveins.models import Quote
 from openveins.forms import QuoteForm
-from django.views.generic import CreateView
+from django.views.generic import CreateView, TemplateView
 from braces.views import LoginRequiredMixin
 from vanilla import UpdateView
 from endless_pagination.decorators import page_template
@@ -30,7 +30,7 @@ def about(request, template='index.html', extra_context=None, **kwargs):
     return home(request, template, extra_context=context, **kwargs)
 
 
-class QuoteUpdateView(UpdateView):
+class QuoteUpdateView(LoginRequiredMixin, UpdateView):
     model = Quote
     template_name = "quote_form.html"
 

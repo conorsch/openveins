@@ -8,7 +8,7 @@ class Quote(models.Model):
         ordering = ['-post_date']
 
     author = models.CharField(max_length=100)
-    source = models.CharField(max_length=100)
+    source = models.CharField(max_length=100, blank=True, null=True)
     year = models.CharField(max_length=10, blank=True, null=True)
     editorial = models.TextField(blank=True)
     text = models.TextField(blank=True)

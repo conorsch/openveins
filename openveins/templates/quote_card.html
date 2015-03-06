@@ -1,4 +1,9 @@
 <div class="container quote-box">
+  {% if request.user.is_authenticated %}
+  <div class="quote-edit-label">
+    <a href="/edit/{{quote.pk}}">Edit</a>
+  </div>
+  {% endif %}
   <blockquote>
     <h1>
     {{ quote.text }}
@@ -6,7 +11,9 @@
     <div class="row">
       <small class="quote-attribution">
         {{quote.author}}<br>
-        <cite title="{{quote.source}}"><i>{{quote.source}}</i></cite><br>
+        {% if quote.source %}
+          <cite title="{{quote.source}}"><i>{{quote.source}}</i></cite><br>
+        {% endif %}
         {{quote.year}}<br>
       </small>
       <div class="quote-post-date">

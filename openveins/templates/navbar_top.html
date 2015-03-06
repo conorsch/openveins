@@ -14,17 +14,17 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a></li>
         <li class="active"><a href="{% url 'about' %}">About <span class="sr-only">(current)</span></a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="{% url 'new-quote' %}">Post new quote</a></li>
-            <li><a href="#">Edit previous quotes</a></li>
-            {% if request.user.is_authenticated %}
-                <li><a href="/logout/?next=/">Logout</a></li>
-            {% else %}
-                <li><a href="/login">Login</a></li>
-            {% endif %}
-          </ul>
+        {% if request.user.is_authenticated %}
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="{% url 'new-quote' %}">Post new quote</a></li>
+              <li><a href="#">Edit previous quotes</a></li>
+              <li><a href="/logout/?next=/">Logout</a></li>
+           </ul>
+        {% else %}
+        <li class="active"><a href="/login/?next=/">Login <span class="sr-only">(current)</span></a></li>
+        {% endif %}
         </li>
       </ul>
       {% include "search/search_box.html" %}
