@@ -10,6 +10,7 @@ class UserFactory(factory.DjangoModelFactory):
     FACTORY_FOR = get_user_model()
     username = factory.Sequence(lambda n: "fakeuser{0}".format(n))
     email = factory.LazyAttribute(lambda obj: "{0}@example.com".format(obj.username))
+    password = '!'
     is_staff = True
     is_active = True
 

@@ -5,13 +5,27 @@ from django.core.exceptions import ValidationError
 from .factories import UserFactory, QuoteFactory
 
 
-class TestViews(TestCase):
+class TestPublicViews(TestCase):
 
     def setUp(self):
-        self.c = Client()
+        self.client = Client()
+        self.user = None
+
+    def test_home_page(self):
+        # quotes should be visible
+        response = self.client.get(reverse("home"))
+        print("PUBLIC VIEW CONTENT:")
+        print(response.content)
+
+        self.assertTrue('<div class="container quote-box">' in str(response.content))
+
+class TestPrivateViews(TestCase):
+
+    def setUp(self):
+        self.client = Client()
         self.user = UserFactory()
 
     def test_home_page(self):
         # quotes should be visible
-        response = self.c.get(reverse("home"))
-        self.assertFalse('<div class="container quote-box">' in str(response.content))
+        response = self.client.get(reverse("home"))
+        self.assertTrue('<div class="container quote-box">' in str(response.content))
