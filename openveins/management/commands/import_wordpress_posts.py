@@ -1,5 +1,8 @@
 from django.core.management.base import NoArgsCommand, CommandError
+from django.conf import settings
 from openveins.models import Quote
+import openveins
+import os
 
 import json
 from pprint import pprint
@@ -10,9 +13,10 @@ class Command(NoArgsCommand):
 
     def handle_noargs(self, *args, **options):
 
-        json_fixture_field = '/home/conor/gits/openveins/openveins/fixtures/wp_posts.json'
+        parent_dir = os.path.dirname(openveins.__file__)
+        json_fixture_file = os.path.join(parent_dir, 'fixtures', 'wp_posts.json')
 
-        wp_posts = json.load(open(json_fixture_field))
+        wp_posts = json.load(open(json_fixture_file))
         for wp_post in wp_posts:
             print("Working on: ", end='')
             pprint(wp_post)

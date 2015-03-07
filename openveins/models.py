@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import datetime
+from django.utils import timezone
 
 
 class Quote(models.Model):
@@ -13,7 +13,7 @@ class Quote(models.Model):
     editorial = models.TextField(blank=True)
     text = models.TextField(blank=True)
     raw_text = models.TextField(blank=True)
-    post_date = models.DateTimeField(default=datetime.now, null=True)
+    post_date = models.DateTimeField(default=timezone.now, null=True)
 
     def __str__(self):
         if self.author:
