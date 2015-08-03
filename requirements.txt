@@ -9,3 +9,4 @@ django-haystack
 django-vanilla-views
 django-braces
 django-floppyforms
+pip
