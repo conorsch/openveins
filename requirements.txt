@@ -7,3 +7,5 @@ django-bootstrap-form
 django-endless-pagination
 django-haystack
 django-vanilla-views
+django-braces
+django-floppyforms
